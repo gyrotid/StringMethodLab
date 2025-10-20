@@ -5,7 +5,9 @@ public class StringLab
     public static void main(String[] args)
     {
         String newString = "Welcome to Java String Lab!"; //Step 1: Create a String variable with the value: " Welcome to the Java String Lab! ".
-        //Step 2: Use the following methods on this string and print the results:
+        
+        //Step 2: Use the following methods on this string and print the results
+        
         int len = newString.length(); //Step 3: length(): Print the length of the string.
         System.out.println(len);
 
@@ -18,8 +20,8 @@ public class StringLab
         System.out.println(newString.toUpperCase()); //Step 6 & 7: toUpperCase() and toLowerCase(): Print both the uppercase and lowercase versions.
         System.out.println(newString.toLowerCase()); 
 
-        int jIndex = newString.indexOf('J'); //Step 8: indexOf(): Find and print the index of the first occurrence of "Java".
-        Sytem.out.println(jIndex);
+        int jIndex = newString.indexOf("Java"); //Step 8: indexOf(): Find and print the index of the first occurrence of "Java".
+        System.out.println(jIndex);
 
         String labString = new String("Lab") //Step 9: contains(): Check if the string contains the word "Lab" and print the result.
         boolean doesContain = newString.contains(labString);
@@ -53,9 +55,19 @@ public class StringLab
         int vowCount = 0;
         for (int i = 0; i < newString.length(); i++)
         {
-            
-
+            char currentChar = newString.charAt(i);
+            if (currentChar == 'a' || currentChar == 'A')
+                vowCount++;
+            else if(currentChar == 'e' || currentChar == 'E')
+                vowCount++;
+            else if(currentChar == 'i' || currentChar == 'I')
+                vowCount++;
+            else if(currentChar == 'o' || currentChar == 'O')
+                vowCount++;
+            else if(currentChar == 'u' || currentChar == 'U')
+                vowCount++;
         }
+        System.out.println("There are " + vowCount + " vowels.")
 
         //Create a new String variable with a single word (e.g., "racecar").
         // Use a while loop to check if the word is a palindrome (reads the same forward and backward). Print whether it is or not.
@@ -74,6 +86,42 @@ public class StringLab
         }
 
         //Do While Input Validation
-        System.out.
+        //Prompt the user to enter a sentence.
+        //Use a do...while loop to repeat the prompt until the user types a sentence that contains the word "Java".
+        //Once the condition is met, print "Thank you!".
+        System.out.println("Please enter a sentence.");
+        String userStr = scanner.nextLine();
+        do
+        {
+            System.out.println("Please enter another sentence.");
+            userStr = scanner.nextLine();
+        }
+        while (!userStr.contains("Java"))
+
+        //Task 3: Create a StringBuilder object initialized with "StringBuilder Lab". Perform the following operations:
+        StringBuilder sbLab = new StringBuilder("StringBuilder Lab");
+        
+        sbLab.append(" - Learning Java");//Step 1: append(): Add " - Learning Java" to the StringBuilder.
+        
+        sbLab.insert(17, " is fun"); //Step 2: insert(): Insert " is fun" after the word "Lab".
+        
+        //delete and reverse were not in Chapter 7, so I'm sourcing my syntax from geeksforgeeks
+        StringBuilder afterSB = sbLab.delete(27, 34); //step 3: delete(): Delete the word "Learning" from the StringBuilder.
+        
+        StringBuilder reverseStr = sbLab.reverse(); //Step 4: reverse(): Reverse the entire string and print it.
+        System.out.println(reverseStr);
+
+        //Task 4: Create a StringBuffer object initialized with "Multithreading Lab" & repeat Task 3 steps
+        StringBuffer mLab = new StringBuffer("Multithreading Lab");
+
+        mLab.append(" - Learning Java");//Step 1: append(): Add " - Learning Java" to the StringBuffer.
+        
+        mLab.insert(17, " is fun"); //Step 2: insert(): Insert " is fun" after the word "Lab".
+        
+        //delete and reverse were not in Chapter 7, so I'm sourcing my syntax from geeksforgeeks
+        StringBuffer afterML = mLab.delete(27, 34); //step 3: delete(): Delete the word "Learning" from the StringBuffer.
+        
+        StringBuffer reverseML = mLab.reverse(); //Step 4: reverse(): Reverse the entire string and print it.
+        System.out.println(reverseML);
     }
 }
